@@ -13,7 +13,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
 
   phpmyadmin:
     container_name: phpmyadmin
@@ -38,7 +38,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - ./postgresql/data:/var/lib/postgresql/data
 
   pgadmin:
     container_name: pgadmin
@@ -52,7 +52,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
-      - pgadmin-data:/var/lib/pgadmin
+      - ./postgresql/pgadmin:/var/lib/pgadmin
 
   mongodb:
     container_name: mongodb
@@ -64,7 +64,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - ./mongodb/db:/data/db
 
   mongo-express:
     container_name: mongodb-management
@@ -87,7 +87,7 @@ services:
     environment:
       - REDIS_REPLICATION_MODE=${REDIS_REPLICATION_MODE}
     volumes:
-      - redis-data:/data/redis
+      - ./redis:/data/redis
 
   rabbitmq:
     container_name: rabbitmq
@@ -101,7 +101,7 @@ services:
       - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
     volumes:
-      - rabbit-data:/var/lib/rabbitmq
+      - ./rabbitmq:/var/lib/rabbitmq
 
   memcached:
     container_name: memcached
@@ -123,13 +123,3 @@ services:
       - ./neo4j/conf:/conf
       - ./neo4j/logs:/logs
       - ./neo4j/plugins:/plugins
-
-volumes:
-  mysql-data:
-  postgres-data:
-  pgadmin-data:
-  mongo-data:
-  redis-data:
-  rabbit-data:
-
-

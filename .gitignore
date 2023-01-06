@@ -1,4 +1,11 @@
 .env
 .DS_Store
+
+# databases
+mongodb/
+mysql/
 neo4j/data/*
 neo4j/logs/*
+postgresql/
+rabbitmq/
+redis/
