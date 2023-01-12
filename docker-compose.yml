@@ -87,7 +87,19 @@ services:
     environment:
       - REDIS_REPLICATION_MODE=${REDIS_REPLICATION_MODE}
     volumes:
-      - ./redis:/data/redis
+      - ./redis/data/redis:/data/redis
+
+  redisinsight:
+    container_name: redisinsight
+    image: redislabs/redisinsight:latest
+    depends_on:
+      - redis
+    ports:
+      - '6380:8001'
+    environment:
+      - RIHOST=0.0.0.0
+    volumes:
+      - ./redis/db:/db
 
   rabbitmq:
     container_name: rabbitmq

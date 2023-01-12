@@ -5,7 +5,7 @@
 -   MySQL (with PhpMyAdmin)
 -   PostgreSQL (with PGAdmin)
 -   MongoDB (with Mongo-Express management)
--   Redis
+-   Redis (with Redis-Insight)
 -   RabbitMQ
 -   Neo4j
 -   Memcached (Currently not working)
@@ -81,5 +81,6 @@ neo4j@neo4j> MATCH (n) RETURN n LIMIT 5;
 | Postgres | `http://localhost:5050`  |
 | MySQL    | `http://localhost:8080`  |
 | MongoDB  | `http://localhost:8081`  |
+| Redis    | `http://localhost:6380`  |
 | RabbitMQ | `http://localhost:15672` |
 | Neo4j    | `http://localhost:7474`  |
