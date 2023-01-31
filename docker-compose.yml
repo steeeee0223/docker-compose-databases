@@ -135,3 +135,25 @@ services:
       - ./neo4j/conf:/conf
       - ./neo4j/logs:/logs
       - ./neo4j/plugins:/plugins
+
+  etcd:
+    container_name: etcd
+    image: 'bitnami/etcd:latest'
+    ports:
+      - 2379:2379
+      - 2380:2380
+    restart: unless-stopped
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
+    volumes:
+      - "./etcd/data:/bitnami/etcd/data"
+  etcdkeeper:
+    container_name: etcdkeeper
+    hostname: etcdkeeper
+    image: evildecay/etcdkeeper:v0.7.6
+    depends_on:
+      - etcd
+    ports:
+      - "8099:8080"
+    restart: unless-stopped

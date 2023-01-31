@@ -8,6 +8,7 @@
 -   Redis (with Redis-Insight)
 -   RabbitMQ
 -   Neo4j
+-   Etcd (with Etcd-Keeper)
 -   Memcached (Currently not working)
 
 ### To create
@@ -84,3 +85,4 @@ neo4j@neo4j> MATCH (n) RETURN n LIMIT 5;
 | Redis    | `http://localhost:6380`  |
 | RabbitMQ | `http://localhost:15672` |
 | Neo4j    | `http://localhost:7474`  |
+| Etcd     | `http://localhost:8099`  |
